@@ -22,7 +22,19 @@ public class SinglyLinkedList {
     }
 
     public void print() {
+        if (empty()){
+            System.out.println("[]");
+            return;
+        }
+        System.out.print("[");
+        Node current = new Node();
+        current = headNode;
+        while (current != null) {
+            System.out.print(current.number + ", ");
+            current = current.nextNode;
+        }
 
+        System.out.println("\b\b]");
     }
 
     public void clear() {
@@ -30,8 +42,17 @@ public class SinglyLinkedList {
     }
 
     public int size() {
-
-        return -1;
+        if (empty()) {
+            return 0;
+        }
+        int incrementNode = 0;
+        Node current =  new Node();
+        current = headNode;
+        while (current != null) {
+            incrementNode++;
+            current = current.nextNode;
+        }
+        return incrementNode;
     }
 
     public boolean contains(int number) {
