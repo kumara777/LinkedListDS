@@ -12,18 +12,50 @@ public class SinglyLinkedList {
         } else {
             Node current =  new Node();
             current = headNode;
-            if (current.nextNode == null) {
+
+            while (current.nextNode != null) {
+                current = current.nextNode;
+            }
+            Node temp = new Node();
+            temp.number = number;
+            temp.nextNode = null;
+            current.nextNode = temp;
+/*            if (current.nextNode == null) {
                 Node temp = new Node();
                 temp.number = number;
                 temp.nextNode = null;
                 current.nextNode = temp;
             }
+            headNode= current;*/
         }
+
 
     }
 
     public void add(int index, int number) {
-
+        if (size() < index) {
+            throw new RuntimeException("Index is out of current Singly Linked List");
+        }
+        if (index == 0) {
+            Node current =  new Node();
+            Node temp = new Node();
+            temp = headNode;
+            current.number = number;
+            current.nextNode = temp;
+            headNode = current;
+            return;
+        }
+        int incrementNode = 0;
+        Node current =  new Node();
+        Node temp = new Node();
+        temp.number = number;
+        current = headNode;
+        while (incrementNode != index) {
+            current = current.nextNode;
+            incrementNode++;
+        }
+        temp.nextNode = current.nextNode;
+        current.nextNode = temp;
     }
 
     public void remove(int index) {
@@ -34,7 +66,7 @@ public class SinglyLinkedList {
         int incrementNode = 0;
         Node current =  new Node();
         current = headNode;
-        while (current != null) {
+        while (current.nextNode != null) {
             if (incrementNode == index) {
                 Node temp = new Node();
                 temp = headNode;
