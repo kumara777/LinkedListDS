@@ -26,7 +26,7 @@ public class SinglyLinkedList {
     }
 
     public void clear() {
-
+        headNode = null;
     }
 
     public int size() {
@@ -35,12 +35,22 @@ public class SinglyLinkedList {
     }
 
     public boolean contains(int number) {
-
+        if (empty()) {
+            return false;
+        }
+        Node current = new Node();
+        current = headNode;
+        while (current != null) {
+            if (current.number == number) {
+                return true;
+            }
+            current = current.nextNode;
+        }
         return false;
     }
 
     public boolean empty() {
-        return false;
+        return (headNode == null);
     }
 
 }

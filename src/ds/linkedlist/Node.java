@@ -1,6 +1,6 @@
 package ds.linkedlist;
 
 public class Node {
-    private int number;
-    private Node nextNode;
+    protected int number;
+    protected Node nextNode;
 }
