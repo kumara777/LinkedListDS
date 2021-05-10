@@ -45,7 +45,7 @@ public class SinglyLinkedList {
             headNode = current;
             return;
         }
-        int incrementNode = 0;
+        int incrementNode = 1;
         Node current =  new Node();
         Node temp = new Node();
         temp.number = number;
